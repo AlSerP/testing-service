@@ -1,3 +1,7 @@
-<% @tests.each do |test| %>
-  <p>test</p>
-<% end %>
+<h1>Тесты</h1>
+
+<div>
+  <% @tests.each do |test| %>
+    <p> <%= link_to test.title, test %></p>
+  <% end %>
+</div>

@@ -1,16 +1,24 @@
 class Test < ApplicationRecord
   has_many :questions
+  has_many :solutions
 
-  def solve(answers)
-    counter = 0
+  def solve(params)
+    answers = {}
+    counter = [0.0, 0.0]
 
-    answers.each do |answer|
-      ans = Answer.find(answer)
+    params.keys.each do |key|
+      sp_key = key.split '_'
+      if sp_key.size == 2 && sp_key[0] == 'question'
+        ans_id = params[key]
 
-      counter += 1 if ans.is_correct
+        counter[1] += 1 if Answer.find(ans_id).is_correct
+        counter[0] += 1
+      end
     end
 
-    mark = counter.to_f / questions.size 
-    Solution.create!(mark: mark)
+    mark = counter[1].to_f / counter[0] * 100
+    solution = solutions.create!(mark: mark)
+
+    solution
   end
 end

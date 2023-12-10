@@ -1,0 +1,39 @@
+<h2>Тест: <%= @test.title %></h2>
+
+<div class="questions">
+  <form class="questions_form" id="questions_form" method="POST" action="/tests/<%= @test.id %>/solve">
+    <% @test.questions.each do |question| %>
+      <div class="question">
+        <div class="question_body"><%= question.body %>:</div>
+
+        <div class="question_answers">
+          <% question.answers.each do |answer| %>
+            <input type="radio" name="question_<%= question.id %>" value="<%= answer.id %>"> <%= answer.body %> <br>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <button class="submit_button" onclick="onSubmit()">Отправить</button>
+    <span id="error_message" style="visibility: hidden; color: red">Ответьте на все вопросы</span>
+  </form>
+</div>
+
+<script>
+  let question_number = <%= @test.questions.count %>;
+
+  function isValid() {
+    let inputs_number = document.querySelectorAll('input[type="radio"]:checked').length;
+    
+    return inputs_number == question_number;
+  }
+
+  function onSubmit(){
+    if (isValid()) {
+      document.getElementById("questions_form").submit();
+    }
+    else {
+      document.getElementById('error_message').style.visibility = 'visible';
+    }
+  }
+</script>
