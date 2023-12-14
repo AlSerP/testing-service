@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_17_104224) do
   create_table "answers", force: :cascade do |t|
     t.text "body"
     t.boolean "is_correct", default: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_17_104224) do
 
   create_table "questions", force: :cascade do |t|
     t.text "body"
-    t.integer "test_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_17_104224) do
 
   create_table "solutions", force: :cascade do |t|
     t.integer "mark", null: false
-    t.integer "test_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_solutions_on_test_id"

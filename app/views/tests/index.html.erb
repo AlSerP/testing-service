@@ -1,7 +1,11 @@
 <h1>Тесты</h1>
 
 <div>
-  <% @tests.each do |test| %>
-    <p> <%= link_to test.title, test %></p>
-  <% end %>
+  <h3>Список тестов:</h3>
+
+  <ul>
+    <% @tests.each do |test| %>
+      <li style="font-size: 22px;"> <%= link_to test.title, test %></li>
+    <% end %>
+  </ul>
 </div>

@@ -1,26 +1,27 @@
-<h2>Тест: <%= @test.title %></h2>
+<h1><%= @test.title %></h1>
 
-<div class="questions">
-  <form class="questions_form" id="questions_form" method="POST" action="/tests/<%= @test.id %>/solve">
-    <% @test.questions.each do |question| %>
-      <div class="question">
-        <div class="question_body"><%= question.body %>:</div>
+<form class="questions_form" id="questions_form" method="POST" action="/tests/<%= @test.id %>/solve">
+  <% @test.questions.each do |question| %>
+    <div class="question">
+      <p class="question_body"><%= question.body %>:</p>
 
-        <div class="question_answers">
-          <% question.answers.each do |answer| %>
-            <input type="radio" name="question_<%= question.id %>" value="<%= answer.id %>"> <%= answer.body %> <br>
-          <% end %>
-        </div>
+      <div class="question_answers">
+        <% question.answers.each do |answer| %>
+          <% option_id = "option#{answer.id}" %>
+          <input type="radio" id="<%= option_id %>" name="question_<%= question.id %>" value="<%= answer.id %>">
+          <label for="<%= option_id %>"><%= answer.body %></label>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-    <button class="submit_button" onclick="onSubmit()">Отправить</button>
-    <span id="error_message" style="visibility: hidden; color: red">Ответьте на все вопросы</span>
-  </form>
-</div>
+
+  <button onclick="onSubmit()" type="button">Отправить</button>
+  <span id="error_message" style="visibility: hidden; color: red">Ответьте на все вопросы</span>
+</form>
 
 <script>
-  let question_number = <%= @test.questions.count %>;
+  let question_number = <%= @test.questions.size %>;
 
   function isValid() {
     let inputs_number = document.querySelectorAll('input[type="radio"]:checked').length;

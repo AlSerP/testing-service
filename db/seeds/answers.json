@@ -19,11 +19,82 @@
   },
   {
    "question_id": 2,
-   "body": "7",
+   "body": "8",
    "is_correct": true
   },
   {
    "question_id": 2,
    "body": "2" 
+  },
+
+  {
+   "question_id": 3,
+   "body": "0" 
+  },
+  {
+   "question_id": 3,
+   "body": "16"
+  },
+  {
+   "question_id": 3,
+   "body": "24",
+   "is_correct": true 
+  },
+
+  {
+   "question_id": 4,
+   "body": "-2",
+   "is_correct": true 
+  },
+  {
+   "question_id": 4,
+   "body": "2"
+  },
+  {
+   "question_id": 4,
+   "body": "1" 
+  },
+
+
+  {
+   "question_id": 5,
+   "body": "4" 
+  },
+  {
+   "question_id": 5,
+   "body": "5"
+  },
+  {
+   "question_id": 5,
+   "body": "6",
+   "is_correct": true 
+  },
+
+  {
+   "question_id": 6,
+   "body": "Собака",
+   "is_correct": true 
+  },
+  {
+   "question_id": 6,
+   "body": "Медведь"
+  },
+  {
+   "question_id": 6,
+   "body": "Хомяк"
+  },
+
+  {
+   "question_id": 7,
+   "body": "Торонто",
+   "is_correct": true 
+  },
+  {
+   "question_id": 7,
+   "body": "Париж"
+  },
+  {
+   "question_id": 7,
+   "body": "Мельнбурн"
   }
 ]
